@@ -1,0 +1,1208 @@
+<!doctype html>
+<html lang="th" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สาขาเทคโนโลยีธุรกิจดิจิทัล</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&amp;family=Prompt:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    * {
+      font-family: 'Sarabun', sans-serif;
+    }
+    .font-heading {
+      font-family: 'Prompt', sans-serif;
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 50%, #0d47a1 100%);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .blue-glass {
+      background: linear-gradient(135deg, rgba(13, 71, 161, 0.1) 0%, rgba(30, 58, 95, 0.15) 100%);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .nav-link {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #60a5fa, #3b82f6);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25);
+    }
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    @keyframes floating {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .pulse-ring {
+      animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse-ring {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .section-divider {
+      background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+      height: 1px;
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .icon-container {
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    }
+    .chat-bubble {
+      animation: fadeInUp 0.5s ease-out;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .scroll-indicator {
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-slate-50">
+  <div id="app" class="h-full overflow-auto"><!-- Navigation -->
+   <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex items-center justify-between h-16">
+      <div class="flex items-center gap-3">
+       <div class="w-10 h-10 icon-container rounded-xl flex items-center justify-center shadow-lg">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+       </div><span id="nav-title" class="font-heading font-semibold text-lg text-slate-800">DBT สาขาเทคโนโลยีธุรกิจดิจิทัล</span>
+      </div>
+      <div class="hidden md:flex items-center gap-8"><a href="#intro" class="nav-link text-slate-600 hover:text-blue-600 text-sm font-medium">บทนำ</a> <a href="#meaning" class="nav-link text-slate-600 hover:text-blue-600 text-sm font-medium">ความหมาย</a> <a href="#vocational" class="nav-link text-slate-600 hover:text-blue-600 text-sm font-medium">ปวช./ปวส.</a> <a href="#university" class="nav-link text-slate-600 hover:text-blue-600 text-sm font-medium">ปริญญาตรี/เรียนต่อเนื่อง</a> <a href="#career" class="nav-link text-slate-600 hover:text-blue-600 text-sm font-medium">อาชีพ</a> <a href="#contact" class="nav-link text-slate-600 hover:text-blue-600 text-sm font-medium">ติดต่อ</a>
+      </div><button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100">
+       <svg class="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+       </svg></button>
+     </div>
+    </div><!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+     <div class="px-4 py-3 space-y-2"><a href="#intro" class="block py-2 text-slate-600 hover:text-blue-600">บทนำ</a> <a href="#meaning" class="block py-2 text-slate-600 hover:text-blue-600">ความหมาย</a> <a href="#vocational" class="block py-2 text-slate-600 hover:text-blue-600">ปวช./ปวส.</a> <a href="#university" class="block py-2 text-slate-600 hover:text-blue-600">ปริญญาตรี</a> <a href="#career" class="block py-2 text-slate-600 hover:text-blue-600">อาชีพ</a> <a href="#contact" class="block py-2 text-slate-600 hover:text-blue-600">ติดต่อ</a>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <header class="gradient-bg min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden">
+     <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl floating"></div>
+     <div class="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl floating" style="animation-delay: 1s;"></div>
+     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-3xl"></div>
+    </div>
+    <div class="relative z-10 max-w-6xl mx-auto px-4 text-center py-20">
+     <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full mb-8 backdrop-blur-sm border border-white/20"><span class="w-2 h-2 bg-green-400 rounded-full pulse-ring"></span> <span class="text-blue-200 text-sm">Digital Business Technology</span>
+     </div>
+     <h1 id="hero-title" class="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">สาขาเทคโนโลยี<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">ธุรกิจดิจิทัล</span></h1>
+     <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">เส้นทางสู่การเป็นนักธุรกิจยุคใหม่ที่ผสานความรู้ด้านเทคโนโลยี<br class="hidden md:block">
+       และการบริหารจัดการธุรกิจอย่างครบวงจร</p>
+     <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12"><a href="#intro" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl"> <span>เริ่มต้นเรียนรู้</span>
+       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+       </svg></a> <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-all backdrop-blur-sm border border-white/20">
+       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+       </svg><span>ติดต่อสอบถาม</span> </a>
+     </div>
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+      <div class="blue-glass rounded-2xl p-6 text-center">
+       <div class="text-3xl md:text-4xl font-bold text-white mb-2">
+        3
+       </div>
+       <div class="text-blue-200 text-sm">
+        ปีการศึกษา (ปวช.)
+       </div>
+      </div>
+      <div class="blue-glass rounded-2xl p-6 text-center">
+       <div class="text-3xl md:text-4xl font-bold text-white mb-2">
+        2
+       </div>
+       <div class="text-blue-200 text-sm">
+        ปีการศึกษา (ปวส.)
+       </div>
+      </div>
+      <div class="blue-glass rounded-2xl p-6 text-center">
+       <div class="text-3xl md:text-4xl font-bold text-white mb-2">
+        5+
+       </div>
+       <div class="text-blue-200 text-sm">
+        สายอาชีพรองรับ
+       </div>
+      </div>
+      <div class="blue-glass rounded-2xl p-6 text-center">
+       <div class="text-3xl md:text-4xl font-bold text-white mb-2">
+        100%
+       </div>
+       <div class="text-blue-200 text-sm">
+        เทียบโอนได้
+       </div>
+      </div>
+     </div>
+     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
+      <svg class="w-8 h-8 text-white/50" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+     </div>
+    </div>
+   </header><!-- Section 1: Introduction -->
+   <section id="intro" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4">บทนำ</span>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mb-4">ความสำคัญของเทคโนโลยีดิจิทัล</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
+     </div>
+     <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="order-2 lg:order-1">
+       <div class="prose prose-lg max-w-none">
+        <p class="text-slate-600 leading-relaxed mb-6 text-lg">ในยุคปัจจุบันที่เรียกว่า <strong class="text-blue-600">"ยุคดิจิทัล"</strong> เทคโนโลยีได้เข้ามามีบทบาทสำคัญในทุกภาคส่วนของธุรกิจ ตั้งแต่การดำเนินงานภายในองค์กร การติดต่อสื่อสารกับลูกค้า ไปจนถึงการวิเคราะห์ข้อมูลเพื่อการตัดสินใจทางธุรกิจ</p>
+        <p class="text-slate-600 leading-relaxed mb-6 text-lg">องค์กรที่สามารถ <strong class="text-blue-600">ปรับตัวและนำเทคโนโลยีดิจิทัลมาประยุกต์ใช้</strong> จะมีความได้เปรียบในการแข่งขัน สามารถลดต้นทุน เพิ่มประสิทธิภาพ และสร้างนวัตกรรมใหม่ๆ ที่ตอบสนองความต้องการของตลาดได้อย่างรวดเร็ว</p>
+        <p class="text-slate-600 leading-relaxed text-lg">การศึกษาในสาขาเทคโนโลยีธุรกิจดิจิทัลจึงเป็นการเตรียมความพร้อมให้นักศึกษามีความรู้และทักษะที่จำเป็นในการก้าวสู่โลกธุรกิจยุคใหม่ที่ขับเคลื่อนด้วยข้อมูลและเทคโนโลยี</p>
+       </div>
+       <div class="mt-8 grid grid-cols-2 gap-4">
+        <div class="flex items-center gap-3 p-4 bg-blue-50 rounded-xl">
+         <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          </svg>
+         </div>
+         <div>
+          <div class="font-semibold text-slate-800">
+           การเติบโต
+          </div>
+          <div class="text-sm text-slate-500">
+           ตลาดดิจิทัลโต 15%/ปี
+          </div>
+         </div>
+        </div>
+        <div class="flex items-center gap-3 p-4 bg-cyan-50 rounded-xl">
+         <div class="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+         </div>
+         <div>
+          <div class="font-semibold text-slate-800">
+           โอกาสงาน
+          </div>
+          <div class="text-sm text-slate-500">
+           ความต้องการสูงมาก
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="order-1 lg:order-2">
+       <div class="relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-3xl transform rotate-3"></div>
+        <div class="relative bg-white p-8 rounded-3xl shadow-xl">
+         <div class="grid grid-cols-2 gap-4">
+          <div class="bg-gradient-to-br from-blue-500 to-blue-600 p-6 rounded-2xl text-white text-center">
+           <div class="text-4xl mb-2">
+            🌐
+           </div>
+           <div class="font-semibold">
+            E-Commerce
+           </div>
+           <div class="text-sm text-blue-100">
+            พาณิชย์อิเล็กทรอนิกส์
+           </div>
+          </div>
+          <div class="bg-gradient-to-br from-cyan-500 to-cyan-600 p-6 rounded-2xl text-white text-center">
+           <div class="text-4xl mb-2">
+            📊
+           </div>
+           <div class="font-semibold">
+            Data Analytics
+           </div>
+           <div class="text-sm text-cyan-100">
+            วิเคราะห์ข้อมูล
+           </div>
+          </div>
+          <div class="bg-gradient-to-br from-indigo-500 to-indigo-600 p-6 rounded-2xl text-white text-center">
+           <div class="text-4xl mb-2">
+            📱
+           </div>
+           <div class="font-semibold">
+            Digital Marketing
+           </div>
+           <div class="text-sm text-indigo-100">
+            การตลาดดิจิทัล
+           </div>
+          </div>
+          <div class="bg-gradient-to-br from-violet-500 to-violet-600 p-6 rounded-2xl text-white text-center">
+           <div class="text-4xl mb-2">
+            🔒
+           </div>
+           <div class="font-semibold">
+            Cyber Security
+           </div>
+           <div class="text-sm text-violet-100">
+            ความปลอดภัยไซเบอร์
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Section 2: Meaning -->
+   <section id="meaning" class="py-24 bg-gradient-to-b from-slate-50 to-white">
+    <div class="max-w-7xl mx-auto px-4">
+     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4">ความหมาย</span>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mb-4">เทคโนโลยีธุรกิจดิจิทัลคืออะไร?</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
+     </div>
+     <div class="glass-card rounded-3xl p-8 md:p-12 shadow-xl mb-12">
+      <div class="max-w-4xl mx-auto text-center">
+       <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg">
+        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+       </div>
+       <p class="text-xl md:text-2xl text-slate-700 leading-relaxed mb-6"><strong class="text-blue-600">สาขาเทคโนโลยีธุรกิจดิจิทัล</strong> เป็นสาขาวิชาที่บูรณาการความรู้ด้านเทคโนโลยีสารสนเทศ เข้ากับหลักการบริหารธุรกิจ เพื่อผลิตบุคลากรที่มีความสามารถในการนำเทคโนโลยีมาพัฒนาและเพิ่มประสิทธิภาพการดำเนินธุรกิจ</p>
+       <p class="text-lg text-slate-500">ผู้เรียนจะได้รับทั้งความรู้ทางทฤษฎีและทักษะปฏิบัติที่สามารถนำไปประยุกต์ใช้ในโลกธุรกิจจริงได้ทันที</p>
+      </div>
+     </div>
+     <h3 class="font-heading text-2xl font-bold text-slate-800 text-center mb-8">ขอบเขตการเรียนรู้</h3>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="card-hover glass-card rounded-2xl p-8 border-t-4 border-blue-500">
+       <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+        </svg>
+       </div>
+       <h4 class="font-heading font-semibold text-xl text-slate-800 mb-3">ระบบสารสนเทศ</h4>
+       <p class="text-slate-600 leading-relaxed">การออกแบบและจัดการระบบฐานข้อมูล การวิเคราะห์และออกแบบระบบสารสนเทศเพื่อสนับสนุนการตัดสินใจทางธุรกิจ</p>
+      </div>
+      <div class="card-hover glass-card rounded-2xl p-8 border-t-4 border-cyan-500">
+       <div class="w-14 h-14 bg-cyan-100 rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+       </div>
+       <h4 class="font-heading font-semibold text-xl text-slate-800 mb-3">การพัฒนาเว็บไซต์</h4>
+       <p class="text-slate-600 leading-relaxed">การออกแบบและพัฒนาเว็บไซต์ด้วย HTML, CSS, JavaScript รวมถึงการใช้ CMS และ Framework ต่างๆ</p>
+      </div>
+      <div class="card-hover glass-card rounded-2xl p-8 border-t-4 border-indigo-500">
+       <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+        </svg>
+       </div>
+       <h4 class="font-heading font-semibold text-xl text-slate-800 mb-3">การตลาดดิจิทัล</h4>
+       <p class="text-slate-600 leading-relaxed">กลยุทธ์การตลาดออนไลน์ SEO, SEM, Social Media Marketing และการวิเคราะห์พฤติกรรมผู้บริโภค</p>
+      </div>
+      <div class="card-hover glass-card rounded-2xl p-8 border-t-4 border-violet-500">
+       <div class="w-14 h-14 bg-violet-100 rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-8 h-8 text-violet-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+       </div>
+       <h4 class="font-heading font-semibold text-xl text-slate-800 mb-3">พาณิชย์อิเล็กทรอนิกส์</h4>
+       <p class="text-slate-600 leading-relaxed">การจัดการร้านค้าออนไลน์ ระบบชำระเงิน การจัดการสินค้าคงคลัง และ Logistics</p>
+      </div>
+      <div class="card-hover glass-card rounded-2xl p-8 border-t-4 border-pink-500">
+       <div class="w-14 h-14 bg-pink-100 rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+        </svg>
+       </div>
+       <h4 class="font-heading font-semibold text-xl text-slate-800 mb-3">การออกแบบกราฟิก</h4>
+       <p class="text-slate-600 leading-relaxed">การออกแบบสื่อดิจิทัล Infographic, UI/UX Design และการใช้โปรแกรมกราฟิกต่างๆ</p>
+      </div>
+      <div class="card-hover glass-card rounded-2xl p-8 border-t-4 border-emerald-500">
+       <div class="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+       </div>
+       <h4 class="font-heading font-semibold text-xl text-slate-800 mb-3">การวิเคราะห์ข้อมูลธุรกิจ</h4>
+       <p class="text-slate-600 leading-relaxed">Business Intelligence, Data Visualization และการใช้เครื่องมือวิเคราะห์ข้อมูลเชิงลึก</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Section 3: Vocational Education -->
+   <section id="vocational" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4">หลักสูตร ปวช. - ปวส.</span>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mb-4">การเรียนในระดับอาชีวศึกษา</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
+     </div>
+     <div class="grid lg:grid-cols-2 gap-8 mb-12"><!-- ปวช. -->
+      <div class="bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl p-8 text-white shadow-xl">
+       <div class="flex items-center gap-4 mb-6">
+        <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm"><span class="text-3xl font-bold">ปวช.</span>
+        </div>
+        <div>
+         <h3 class="font-heading text-2xl font-bold">ประกาศนียบัตรวิชาชีพ</h3>
+         <p class="text-blue-200">ระยะเวลาเรียน 3 ปี</p>
+        </div>
+       </div>
+       <p class="text-blue-100 mb-6 leading-relaxed">สาขาเทคโนโลยีธุรกิจดิจิทัลเปิดสอนตั้งแต่ระดับ ปวช. โดยเน้นการสร้างพื้นฐานที่แข็งแกร่งทั้งด้านเทคโนโลยีและธุรกิจ</p>
+       <h4 class="font-semibold text-lg mb-4 flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg> รายวิชาที่เรียน</h4>
+       <div class="grid grid-cols-1 gap-3">
+        <div class="flex items-center gap-3 bg-white/10 rounded-xl p-3"><span class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center text-sm">💻</span> <span>คอมพิวเตอร์และสารสนเทศเพื่องานอาชีพ</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white/10 rounded-xl p-3"><span class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center text-sm">🌐</span> <span>การสร้างเว็บไซต์เบื้องต้น (HTML/CSS)</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white/10 rounded-xl p-3"><span class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center text-sm">📊</span> <span>โปรแกรมตารางคำนวณ (Excel)</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white/10 rounded-xl p-3"><span class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center text-sm">🎨</span> <span>กราฟิกเบื้องต้น (Photoshop/Canva)</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white/10 rounded-xl p-3"><span class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center text-sm">📱</span> <span>หลักการตลาดดิจิทัลเบื้องต้น</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white/10 rounded-xl p-3"><span class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center text-sm">🛒</span> <span>พาณิชย์อิเล็กทรอนิกส์เบื้องต้น</span>
+        </div>
+       </div>
+      </div><!-- ปวส. -->
+      <div class="bg-gradient-to-br from-cyan-600 to-cyan-700 rounded-3xl p-8 text-white shadow-xl">
+       <div class="flex items-center gap-4 mb-6">
+        <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm"><span class="text-3xl font-bold">ปวส.</span>
+        </div>
+        <div>
+         <h3 class="font-heading text-2xl font-bold">ประกาศนียบัตรวิชาชีพชั้นสูง</h3>
+         <p class="text-cyan-200">ระยะเวลาเรียน 2 ปี</p>
+        </div>
+       </div>
+       <p class="text-cyan-100 mb-6 leading-relaxed">ต่อยอดจาก ปวช. หรือ ม.6 เพื่อเพิ่มความเชี่ยวชาญเฉพาะทาง พร้อมสำหรับการทำงานหรือศึกษาต่อระดับปริญญาตรี</p>
+       <h4 class="font-semibold text-lg mb-4 flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg> รายวิชาที่เรียน</h4>
+       <div class="grid grid-cols-1 gap-3">
+        <div class="flex items-center gap-3 bg-white/10 rounded-xl p-3"><span class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center text-sm">🗄️</span> <span>ระบบฐานข้อมูลและการจัดการข้อมูล</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white/10 rounded-xl p-3"><span class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center text-sm">⚡</span> <span>การพัฒนาเว็บไซต์ขั้นสูง (JavaScript)</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white/10 rounded-xl p-3"><span class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center text-sm">📈</span> <span>การวิเคราะห์และวางแผนการตลาดดิจิทัล</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white/10 rounded-xl p-3"><span class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center text-sm">🔒</span> <span>ความปลอดภัยในระบบสารสนเทศ</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white/10 rounded-xl p-3"><span class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center text-sm">📲</span> <span>การพัฒนาแอปพลิเคชันบนมือถือ</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white/10 rounded-xl p-3"><span class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center text-sm">🎓</span> <span>โครงงานเทคโนโลยีธุรกิจดิจิทัล</span>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-3xl p-8 border border-blue-100">
+      <h3 class="font-heading text-xl font-bold text-slate-800 mb-4 text-center">✨ จุดเด่นของหลักสูตร</h3>
+      <div class="grid md:grid-cols-4 gap-6">
+       <div class="text-center">
+        <div class="w-16 h-16 bg-white rounded-2xl shadow-md flex items-center justify-center mx-auto mb-3"><span class="text-3xl">🎯</span>
+        </div>
+        <h4 class="font-semibold text-slate-800 mb-1">เรียนรู้จริง</h4>
+        <p class="text-sm text-slate-600">ฝึกปฏิบัติมากกว่า 60%</p>
+       </div>
+       <div class="text-center">
+        <div class="w-16 h-16 bg-white rounded-2xl shadow-md flex items-center justify-center mx-auto mb-3"><span class="text-3xl">🏢</span>
+        </div>
+        <h4 class="font-semibold text-slate-800 mb-1">ฝึกงานจริง</h4>
+        <p class="text-sm text-slate-600">สถานประกอบการชั้นนำ</p>
+       </div>
+       <div class="text-center">
+        <div class="w-16 h-16 bg-white rounded-2xl shadow-md flex items-center justify-center mx-auto mb-3"><span class="text-3xl">🏆</span>
+        </div>
+        <h4 class="font-semibold text-slate-800 mb-1">Certificate</h4>
+        <p class="text-sm text-slate-600">ใบรับรองทักษะดิจิทัล</p>
+       </div>
+       <div class="text-center">
+        <div class="w-16 h-16 bg-white rounded-2xl shadow-md flex items-center justify-center mx-auto mb-3"><span class="text-3xl">🔗</span>
+        </div>
+        <h4 class="font-semibold text-slate-800 mb-1">เทียบโอน</h4>
+        <p class="text-sm text-slate-600">ศึกษาต่อปริญญาตรี</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Section 4: University Transfer -->
+   <section id="university" class="py-24 bg-gradient-to-b from-slate-50 to-white">
+    <div class="max-w-7xl mx-auto px-4">
+     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4">เส้นทางการศึกษาต่อ</span>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mb-4">เทียบโอนสู่ระดับปริญญาตรี</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
+      <p class="text-slate-600 mt-4 max-w-2xl mx-auto">ผู้สำเร็จการศึกษา ปวส. สามารถเทียบโอนหน่วยกิตเข้าศึกษาต่อระดับปริญญาตรี (หลักสูตรต่อเนื่อง 2 ปี) ในคณะและสาขาที่เกี่ยวข้อง</p>
+     </div>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
+       <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+       </div>
+       <h3 class="font-heading font-semibold text-lg text-slate-800 mb-2">คณะบริหารธุรกิจ</h3>
+       <p class="text-slate-600 text-sm">สาขาคอมพิวเตอร์ธุรกิจ, สาขาการตลาดดิจิทัล, สาขาระบบสารสนเทศทางธุรกิจ</p>
+      </div>
+      <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
+       <div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center mb-4">
+        <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+       </div>
+       <h3 class="font-heading font-semibold text-lg text-slate-800 mb-2">คณะเทคโนโลยีสารสนเทศ</h3>
+       <p class="text-slate-600 text-sm">สาขาเทคโนโลยีสารสนเทศ, สาขาวิทยาการคอมพิวเตอร์, สาขาเทคโนโลยีมัลติมีเดีย</p>
+      </div>
+      <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
+       <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
+        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+        </svg>
+       </div>
+       <h3 class="font-heading font-semibold text-lg text-slate-800 mb-2">คณะวิทยาการจัดการ</h3>
+       <p class="text-slate-600 text-sm">สาขาการจัดการธุรกิจดิจิทัล, สาขานิเทศศาสตร์ดิจิทัล</p>
+      </div>
+      <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
+       <div class="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center mb-4">
+        <svg class="w-6 h-6 text-violet-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+        </svg>
+       </div>
+       <h3 class="font-heading font-semibold text-lg text-slate-800 mb-2">คณะวิศวกรรมศาสตร์</h3>
+       <p class="text-slate-600 text-sm">สาขาวิศวกรรมคอมพิวเตอร์, สาขาวิศวกรรมซอฟต์แวร์</p>
+      </div>
+      <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
+       <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center mb-4">
+        <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+        </svg>
+       </div>
+       <h3 class="font-heading font-semibold text-lg text-slate-800 mb-2">คณะนิเทศศาสตร์</h3>
+       <p class="text-slate-600 text-sm">สาขาการสื่อสารดิจิทัล, สาขาสื่อสารการตลาด</p>
+      </div>
+      <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
+       <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4">
+        <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+       </div>
+       <h3 class="font-heading font-semibold text-lg text-slate-800 mb-2">คณะวิทยาศาสตร์</h3>
+       <p class="text-slate-600 text-sm">สาขาวิทยาการข้อมูล, สาขาสถิติประยุกต์</p>
+      </div>
+     </div>
+     <h3 class="font-heading text-2xl font-bold text-slate-800 text-center mb-8">🏫 มหาวิทยาลัยที่รับเทียบโอน ปวส.</h3>
+     <div class="space-y-4"><!-- University 1 -->
+      <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border-l-4 border-blue-500">
+       <div class="flex flex-col md:flex-row md:items-center gap-4">
+        <div class="flex items-center gap-4 flex-1">
+         <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🎓</span>
+         </div>
+         <div>
+          <div class="flex items-center gap-2 mb-1"><span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium">รัฐบาล</span> <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium">รับ ปวส. โดยตรง</span>
+          </div>
+          <h4 class="font-heading font-semibold text-lg text-slate-800">มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี (RMUTT)</h4>
+          <p class="text-slate-600 text-sm">คณะบริหารธุรกิจ สาขาระบบสารสนเทศ / คณะเทคโนโลยีสื่อสารมวลชน</p>
+         </div>
+        </div>
+        <div class="text-right">
+         <div class="text-2xl font-bold text-blue-600">
+          #1
+         </div>
+         <div class="text-sm text-slate-500">
+          ยอดนิยม
+         </div>
+        </div>
+       </div>
+      </div><!-- University 2 -->
+      <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border-l-4 border-cyan-500">
+       <div class="flex flex-col md:flex-row md:items-center gap-4">
+        <div class="flex items-center gap-4 flex-1">
+         <div class="w-16 h-16 bg-cyan-600 rounded-2xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🎓</span>
+         </div>
+         <div>
+          <div class="flex items-center gap-2 mb-1"><span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium">รัฐบาล</span> <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium">รับ ปวส. โดยตรง</span>
+          </div>
+          <h4 class="font-heading font-semibold text-lg text-slate-800">มหาวิทยาลัยเทคโนโลยีราชมงคลพระนคร (RMUTP)</h4>
+          <p class="text-slate-600 text-sm">คณะบริหารธุรกิจ สาขาคอมพิวเตอร์ธุรกิจ / สาขาการตลาด</p>
+         </div>
+        </div>
+        <div class="text-right">
+         <div class="text-2xl font-bold text-cyan-600">
+          #2
+         </div>
+         <div class="text-sm text-slate-500">
+          แนะนำ
+         </div>
+        </div>
+       </div>
+      </div><!-- University 3 -->
+      <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border-l-4 border-indigo-500">
+       <div class="flex flex-col md:flex-row md:items-center gap-4">
+        <div class="flex items-center gap-4 flex-1">
+         <div class="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🎓</span>
+         </div>
+         <div>
+          <div class="flex items-center gap-2 mb-1"><span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium">รัฐบาล</span> <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium">รับ ปวส. โดยตรง</span>
+          </div>
+          <h4 class="font-heading font-semibold text-lg text-slate-800">มหาวิทยาลัยราชภัฏสวนสุนันทา (SSRU)</h4>
+          <p class="text-slate-600 text-sm">วิทยาลัยนวัตกรรมและการจัดการ สาขาธุรกิจดิจิทัล / สาขาเทคโนโลยีสารสนเทศ</p>
+         </div>
+        </div>
+        <div class="text-right">
+         <div class="text-2xl font-bold text-indigo-600">
+          #3
+         </div>
+         <div class="text-sm text-slate-500">
+          แนะนำ
+         </div>
+        </div>
+       </div>
+      </div><!-- University 4 -->
+      <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border-l-4 border-violet-500">
+       <div class="flex flex-col md:flex-row md:items-center gap-4">
+        <div class="flex items-center gap-4 flex-1">
+         <div class="w-16 h-16 bg-violet-600 rounded-2xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🎓</span>
+         </div>
+         <div>
+          <div class="flex items-center gap-2 mb-1"><span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full font-medium">เอกชน</span> <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium">รับ ปวส. โดยตรง</span>
+          </div>
+          <h4 class="font-heading font-semibold text-lg text-slate-800">มหาวิทยาลัยศรีปทุม (SPU)</h4>
+          <p class="text-slate-600 text-sm">คณะบริหารธุรกิจ สาขาธุรกิจดิจิทัล / คณะเทคโนโลยีสารสนเทศ</p>
+         </div>
+        </div>
+        <div class="text-right">
+         <div class="text-2xl font-bold text-violet-600">
+          #4
+         </div>
+         <div class="text-sm text-slate-500">
+          เอกชนชั้นนำ
+         </div>
+        </div>
+       </div>
+      </div><!-- University 5 -->
+      <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border-l-4 border-pink-500">
+       <div class="flex flex-col md:flex-row md:items-center gap-4">
+        <div class="flex items-center gap-4 flex-1">
+         <div class="w-16 h-16 bg-pink-600 rounded-2xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🎓</span>
+         </div>
+         <div>
+          <div class="flex items-center gap-2 mb-1"><span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full font-medium">เอกชน</span> <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium">รับ ปวส. โดยตรง</span>
+          </div>
+          <h4 class="font-heading font-semibold text-lg text-slate-800">มหาวิทยาลัยหอการค้าไทย (UTCC)</h4>
+          <p class="text-slate-600 text-sm">คณะบริหารธุรกิจ สาขาการจัดการธุรกิจดิจิทัล / คณะวิศวกรรมศาสตร์</p>
+         </div>
+        </div>
+        <div class="text-right">
+         <div class="text-2xl font-bold text-pink-600">
+          #5
+         </div>
+         <div class="text-sm text-slate-500">
+          เอกชนชั้นนำ
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     </div>
+        <h3 class="font-heading text-2xl font-bold text-slate-800 text-center mb-8">🏫 วิทยาลัยที่มีหลักสูตรปริญญาตรีต่อเนื่องจาก ปวส.</h3>
+        <div class="space-y-4"><!-- University 6 -->
+          <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border-l-4 border-blue-500">
+          <div class="flex flex-col md:flex-row md:items-center gap-4">
+            <div class="flex items-center gap-4 flex-1">
+            <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🎓</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1"><span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium">รัฐบาล</span> <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium">รับ ปวส. ต่อเนื่อง</span>
+              </div>
+              <h4 class="font-heading font-semibold text-lg text-slate-800">วิทยาลัยพณิชยการบางนา (BNCC)</h4>
+              <p class="text-slate-600 text-sm">สาขาเทคโนโลยีธุรกิจดิจิทัล หลักสูตรทันสมัย เน้นปฏิบัติจริง มีความร่วมมือกับภาคธุรกิจ</p>
+            </div>
+            </div>
+            <div class="text-right">
+            <div class="text-2xl font-bold text-blue-600">
+            </div>
+            <div class="text-sm text-slate-500">
+              แนะนำ
+            </div>
+            </div>
+          </div>
+          </div><!-- University 7 -->
+          <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border-l-4 border-cyan-500">
+          <div class="flex flex-col md:flex-row md:items-center gap-4">
+            <div class="flex items-center gap-4 flex-1">
+            <div class="w-16 h-16 bg-cyan-600 rounded-2xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🎓</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1"><span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium">รัฐบาล</span> <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium">รับ ปวส. ต่อเนื่อง</span>
+              </div>
+              <h4 class="font-heading font-semibold text-lg text-slate-800">วิทยาลัยพณิชยการธนบุรี (TCC)</h4>
+              <p class="text-slate-600 text-sm">สาขาเทคโนโลยีธุรกิจดิจิทัล มีชื่อเสียงด้านคอมพิวเตอร์ธุรกิจและการตลาด</p>
+            </div>
+            </div>
+            <div class="text-right">
+            <div class="text-2xl font-bold text-cyan-600">
+            </div>
+            <div class="text-sm text-slate-500">
+              แนะนำ
+            </div>
+            </div>
+          </div>
+          </div><!-- University 8 -->
+          <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border-l-4 border-indigo-500">
+          <div class="flex flex-col md:flex-row md:items-center gap-4">
+            <div class="flex items-center gap-4 flex-1">
+            <div class="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🎓</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1"><span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium">รัฐบาล</span> <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium">รับ ปวส. ต่อเนื่อง</span>
+              </div>
+              <h4 class="font-heading font-semibold text-lg text-slate-800">วิทยาลัยอาชีวศึกษาธนบุรี (TVC)</h4>
+              <p class="text-slate-600 text-sm">สาขาเทคโนโลยีธุรกิจดิจิทัล เน้นการเรียนรู้แบบ Project-based</p>
+            </div>
+            </div>
+            <div class="text-right">
+            <div class="text-2xl font-bold text-indigo-600">
+            </div>
+            <div class="text-sm text-slate-500">
+              แนะนำ
+            </div>
+            </div>
+          </div>
+          </div><!-- University 9 -->
+          <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border-l-4 border-violet-500">
+          <div class="flex flex-col md:flex-row md:items-center gap-4">
+            <div class="flex items-center gap-4 flex-1">
+            <div class="w-16 h-16 bg-violet-600 rounded-2xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🎓</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1"><span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full font-medium">เอกชน</span> <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium">รับ ปวส. ต่อเนื่อง</span>
+              </div>
+              <h4 class="font-heading font-semibold text-lg text-slate-800">วิทยาลัยเทคโนโลยีสยามบริหารธุรกิจ (SBAC)</h4>
+              <p class="text-slate-600 text-sm">สาขาเทคโนโลยีธุรกิจดิจิทัล หลักสูตรร่วมกับมหาวิทยาลัย สามารถเรียนต่อเนื่องได้</p>
+            </div>
+            </div>
+            <div class="text-right">
+            <div class="text-2xl font-bold text-violet-600">
+            </div>
+            <div class="text-sm text-slate-500">
+              แนะนำ
+            </div>
+            </div>
+          </div>
+          </div><!-- University 10 -->
+          <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border-l-4 border-pink-500">
+          <div class="flex flex-col md:flex-row md:items-center gap-4">
+            <div class="flex items-center gap-4 flex-1">
+            <div class="w-16 h-16 bg-pink-600 rounded-2xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🎓</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1"><span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full font-medium">เอกชน</span> <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium">รับ ปวส. ต่อเนื่อง</span>
+              </div>
+              <h4 class="font-heading font-semibold text-lg text-slate-800">วิทยาลัยเทคโนโลยีศรีวัฒนาบริหารธุรกิจ (STECH)</h4>
+              <p class="text-slate-600 text-sm">สาขาคอมพิวเตอร์ธุรกิจ/เทคโนโลยีธุรกิจดิจิทัล เน้นทักษะปฏิบัติและฝึกงาน</p>
+            </div>
+            </div>
+            <div class="text-right">
+            <div class="text-2xl font-bold text-pink-600">
+            </div>
+            <div class="text-sm text-slate-500">
+              แนะนำ
+            </div>
+            </div>
+          </div>
+          </div>
+        </div>
+     <div class="mt-8 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-6 text-white text-center">
+      <p class="text-lg font-medium">💡 ผู้สำเร็จ ปวส. สามารถเทียบโอนหน่วยกิต เรียนต่อเพียง <strong class="text-2xl">2 ปี</strong> ก็จบปริญญาตรี!</p>
+     </div>
+    </div>
+   </section><!-- Section 5: Career Path -->
+   <section id="career" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4">แนวทางอาชีพ</span>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mb-4">สายอาชีพที่รองรับ</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
+      <p class="text-slate-600 mt-4 max-w-2xl mx-auto">ผู้สำเร็จการศึกษาสาขาเทคโนโลยีธุรกิจดิจิทัลสามารถประกอบอาชีพได้หลากหลาย ทั้งในภาครัฐและเอกชน</p>
+     </div>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Career 1 -->
+      <div class="card-hover group bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+       <div class="h-3 bg-gradient-to-r from-blue-500 to-blue-600"></div>
+       <div class="p-6">
+        <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><span class="text-3xl">💻</span>
+        </div>
+        <h3 class="font-heading font-semibold text-xl text-slate-800 mb-3">นักพัฒนาเว็บไซต์</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-4">ออกแบบและพัฒนาเว็บไซต์ทั้ง Frontend และ Backend ดูแลระบบ Content Management System และพัฒนา Web Application ให้ตอบสนองความต้องการขององค์กร</p>
+       </div>
+      </div><!-- Career 2 -->
+      <div class="card-hover group bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+       <div class="h-3 bg-gradient-to-r from-cyan-500 to-cyan-600"></div>
+       <div class="p-6">
+        <div class="w-16 h-16 bg-cyan-100 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><span class="text-3xl">📱</span>
+        </div>
+        <h3 class="font-heading font-semibold text-xl text-slate-800 mb-3">นักการตลาดดิจิทัล</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-4">วางแผนและดำเนินกลยุทธ์การตลาดออนไลน์ บริหาร Social Media, Google Ads, Facebook Ads วิเคราะห์ข้อมูลและพฤติกรรมลูกค้าเพื่อเพิ่มยอดขาย</p>
+       </div>
+      </div><!-- Career 3 -->
+      <div class="card-hover group bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+       <div class="h-3 bg-gradient-to-r from-indigo-500 to-indigo-600"></div>
+       <div class="p-6">
+        <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><span class="text-3xl">🛒</span>
+        </div>
+        <h3 class="font-heading font-semibold text-xl text-slate-800 mb-3">ผู้จัดการร้านค้าออนไลน์</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-4">บริหารจัดการร้านค้าบน E-Commerce Platform เช่น Shopee, Lazada ดูแลสินค้า ราคา โปรโมชัน และการจัดส่ง วิเคราะห์ยอดขายและวางแผนกลยุทธ์</p>
+       </div>
+      </div><!-- Career 4 -->
+      <div class="card-hover group bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+       <div class="h-3 bg-gradient-to-r from-violet-500 to-violet-600"></div>
+       <div class="p-6">
+        <div class="w-16 h-16 bg-violet-100 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><span class="text-3xl">🎨</span>
+        </div>
+        <h3 class="font-heading font-semibold text-xl text-slate-800 mb-3">นักออกแบบ UI/UX</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-4">ออกแบบ User Interface และ User Experience สำหรับเว็บไซต์และแอปพลิเคชัน สร้าง Wireframe, Prototype และทดสอบการใช้งานกับผู้ใช้จริง</p>
+       </div>
+      </div><!-- Career 5 -->
+      <div class="card-hover group bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+       <div class="h-3 bg-gradient-to-r from-emerald-500 to-emerald-600"></div>
+       <div class="p-6">
+        <div class="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><span class="text-3xl">📊</span>
+        </div>
+        <h3 class="font-heading font-semibold text-xl text-slate-800 mb-3">นักวิเคราะห์ข้อมูลธุรกิจ</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-4">รวบรวมและวิเคราะห์ข้อมูลธุรกิจ สร้าง Dashboard และ Report สำหรับผู้บริหาร ใช้เครื่องมือ BI เพื่อสนับสนุนการตัดสินใจทางธุรกิจ</p>
+       </div>
+      </div><!-- Career 6 -->
+      <div class="card-hover group bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+       <div class="h-3 bg-gradient-to-r from-rose-500 to-rose-600"></div>
+       <div class="p-6">
+        <div class="w-16 h-16 bg-rose-100 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><span class="text-3xl">🎬</span>
+        </div>
+        <h3 class="font-heading font-semibold text-xl text-slate-800 mb-3">Content Creator</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-4">สร้างสรรค์เนื้อหาดิจิทัลในรูปแบบต่างๆ ทั้งข้อความ ภาพ วิดีโอ สำหรับ Social Media และแพลตฟอร์มออนไลน์ต่างๆ เพื่อสร้างการมีส่วนร่วมของผู้ชม</p>
+       </div>
+      </div>
+     </div>
+     <div class="mt-12 grid md:grid-cols-3 gap-6">
+      <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 text-center">
+       <div class="text-4xl font-bold text-blue-600 mb-2">
+        95%
+       </div>
+       <p class="text-slate-600">อัตราการได้งานหลังจบ</p>
+      </div>
+      <div class="bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-2xl p-6 text-center">
+       <div class="text-4xl font-bold text-cyan-600 mb-2">
+        +25%
+       </div>
+       <p class="text-slate-600">การเติบโตของตำแหน่งงาน/ปี</p>
+      </div>
+      <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl p-6 text-center">
+       <div class="text-4xl font-bold text-indigo-600 mb-2">
+        ∞
+       </div>
+       <p class="text-slate-600">โอกาสเป็นผู้ประกอบการ</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Section 6: Summary -->
+   <section class="py-24 gradient-bg text-white relative overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden">
+     <div class="absolute top-20 right-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
+     <div class="absolute bottom-20 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 relative z-10">
+     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium mb-4 backdrop-blur-sm">สรุป</span>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">ประโยชน์ของการเรียนสาขานี้</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
+     </div>
+     <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="blue-glass rounded-3xl p-8">
+       <h3 class="font-heading text-xl font-semibold mb-6 flex items-center gap-3"><span class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">🎯</span> ทักษะที่จะได้รับ</h3>
+       <div class="space-y-4">
+        <div class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+         </svg><span>ทักษะด้านเทคโนโลยีสารสนเทศและดิจิทัล</span>
+        </div>
+        <div class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+         </svg><span>ความสามารถในการวิเคราะห์และแก้ปัญหา</span>
+        </div>
+        <div class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+         </svg><span>ทักษะการสื่อสารและนำเสนอในโลกดิจิทัล</span>
+        </div>
+        <div class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+         </svg><span>ความเข้าใจในการดำเนินธุรกิจยุคใหม่</span>
+        </div>
+        <div class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+         </svg><span>ความคิดสร้างสรรค์และนวัตกรรม</span>
+        </div>
+       </div>
+      </div>
+      <div class="blue-glass rounded-3xl p-8">
+       <h3 class="font-heading text-xl font-semibold mb-6 flex items-center gap-3"><span class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">🚀</span> โอกาสในอนาคต</h3>
+       <div class="space-y-4">
+        <div class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+         </svg><span>ตลาดแรงงานดิจิทัลเติบโตอย่างต่อเนื่อง</span>
+        </div>
+        <div class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+         </svg><span>สามารถทำงานได้ทุกที่ทุกเวลา (Remote Work)</span>
+        </div>
+        <div class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+         </svg><span>โอกาสในการเป็นผู้ประกอบการ Startup</span>
+        </div>
+        <div class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+         </svg><span>ค่าตอบแทนสูงและมีแนวโน้มเพิ่มขึ้น</span>
+        </div>
+        <div class="flex items-center gap-3">
+         <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+         </svg><span>ทักษะที่ได้รับใช้ได้ตลอดชีวิต</span>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="text-center">
+      <div class="inline-block bg-white/10 backdrop-blur-sm rounded-3xl p-8 max-w-3xl">
+       <p class="text-xl leading-relaxed text-blue-100">"การศึกษาในสาขาเทคโนโลยีธุรกิจดิจิทัลเป็นการลงทุนที่คุ้มค่าสำหรับอนาคต เพราะทุกธุรกิจต้องการบุคลากรที่เข้าใจทั้งเทคโนโลยีและการดำเนินธุรกิจ ไม่ว่าจะทำงานในองค์กรหรือสร้างธุรกิจของตัวเอง ความรู้เหล่านี้จะเป็นรากฐานสำคัญสู่ความสำเร็จ"</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Section 7: Contact -->
+   <section id="contact" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4">ติดต่อเรา</span>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mb-4">ช่องทางการติดต่อ</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
+     </div>
+     <div class="grid lg:grid-cols-2 gap-12"><!-- Contact Info -->
+      <div>
+       <h3 class="font-heading text-2xl font-bold text-slate-800 mb-6">สนใจสมัครเรียนหรือสอบถามข้อมูล</h3>
+       <p class="text-slate-600 mb-8">สามารถติดต่อสอบถามได้ทุกช่องทาง ทีมงานยินดีให้คำปรึกษาเกี่ยวกับหลักสูตรและการศึกษาต่อ</p>
+       <div class="space-y-4">
+        <div class="flex items-center gap-4 p-4 bg-slate-50 rounded-xl">
+         <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+          <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+         </div>
+         <div>
+          <div class="text-sm text-slate-500">
+           อีเมล
+          </div>
+          <div id="contact-email" class="font-medium text-slate-800">
+           dbt.info@college.ac.th
+          </div>
+         </div>
+        </div>
+        <div class="flex items-center gap-4 p-4 bg-slate-50 rounded-xl">
+         <div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center flex-shrink-0">
+          <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+         </div>
+         <div>
+          <div class="text-sm text-slate-500">
+           โทรศัพท์
+          </div>
+          <div id="contact-phone" class="font-medium text-slate-800">
+           02-XXX-XXXX ต่อ 1234
+          </div>
+         </div>
+        </div>
+        <div class="flex items-center gap-4 p-4 bg-slate-50 rounded-xl">
+         <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+          <svg class="w-6 h-6 text-green-600" viewbox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+         </div>
+         <div>
+          <div class="text-sm text-slate-500">
+           Line Official
+          </div>
+          <div class="font-medium text-slate-800">
+           @dbt-college
+          </div>
+         </div>
+        </div>
+        <div class="flex items-center gap-4 p-4 bg-slate-50 rounded-xl">
+         <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0">
+          <svg class="w-6 h-6 text-indigo-600" fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+          </svg>
+         </div>
+         <div>
+          <div class="text-sm text-slate-500">
+           Facebook
+          </div>
+          <div class="font-medium text-slate-800">
+           สาขาเทคโนโลยีธุรกิจดิจิทัล
+          </div>
+         </div>
+        </div>
+       </div>
+      </div><!-- Admin Chat Simulation -->
+      <div class="bg-slate-100 rounded-3xl p-6">
+       <div class="bg-white rounded-2xl shadow-lg overflow-hidden h-full flex flex-col"><!-- Chat Header -->
+        <div class="bg-gradient-to-r from-blue-600 to-cyan-600 p-4 flex items-center gap-3">
+         <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center"><span class="text-2xl">👩‍💼</span>
+         </div>
+         <div>
+          <div class="font-semibold text-white">
+           แอดมินสาขา DBT
+          </div>
+          <div class="text-sm text-blue-100 flex items-center gap-2"><span class="w-2 h-2 bg-green-400 rounded-full"></span> ออนไลน์
+          </div>
+         </div>
+        </div><!-- Chat Messages -->
+        <div id="chat-messages" class="flex-1 p-4 space-y-4 max-h-96 overflow-y-auto bg-slate-50">
+         <div class="chat-bubble flex gap-3">
+          <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0"><span class="text-sm">👩‍💼</span>
+          </div>
+          <div class="bg-white rounded-2xl rounded-tl-none p-4 shadow-sm max-w-xs">
+           <p class="text-slate-700">สวัสดีค่ะ! ยินดีต้อนรับสู่สาขาเทคโนโลยีธุรกิจดิจิทัล 😊</p>
+           <p class="text-slate-700 mt-2">มีอะไรให้ช่วยไหมคะ?</p>
+          </div>
+         </div>
+        </div><!-- Quick Replies -->
+        <div class="p-4 border-t bg-white">
+         <div class="text-sm text-slate-500 mb-3">
+          คำถามที่พบบ่อย:
+         </div>
+         <div class="flex flex-wrap gap-2"><button onclick="sendQuickReply('สมัครเรียนอย่างไร?')" class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm hover:bg-blue-200 transition-colors"> สมัครเรียนอย่างไร? </button> <button onclick="sendQuickReply('เทียบโอนได้ไหม?')" class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm hover:bg-blue-200 transition-colors"> เทียบโอนได้ไหม? </button></button> <button onclick="sendQuickReply('สามารถเรียนที่วิทยาลัยหลักสูตรต่อเนื่องจาก ปวส.ได้ไหม?')" class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm hover:bg-blue-200 transition-colors"> สามารถเรียนที่วิทยาลัยหลักสูตรต่อเนื่องจาก ปวส.ได้ไหม? </button>  
+         </div><!-- Chat Input -->
+         <div class="flex gap-2 mt-4"><input type="text" id="chat-input" placeholder="พิมพ์ข้อความ..." class="flex-1 px-4 py-3 bg-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" onkeypress="if(event.key === 'Enter') sendMessage()"> <button onclick="sendMessage()" class="px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors">
+           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+           </svg></button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="bg-slate-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4">
+     <div class="grid md:grid-cols-3 gap-8 mb-8">
+      <div>
+       <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 icon-container rounded-xl flex items-center justify-center">
+         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+         </svg>
+        </div><span id="footer-title" class="font-heading font-semibold text-lg">สาขาเทคโนโลยีธุรกิจดิจิทัล</span>
+       </div>
+       <p class="text-slate-400 text-sm">สร้างอนาคตของคุณด้วยเทคโนโลยีและความรู้ทางธุรกิจที่ทันสมัย</p>
+      </div>
+      <div>
+       <h4 class="font-semibold mb-4">ลิงก์ด่วน</h4>
+       <div class="space-y-2"><a href="#intro" class="block text-slate-400 hover:text-white text-sm">บทนำ</a> <a href="#vocational" class="block text-slate-400 hover:text-white text-sm">หลักสูตร ปวช.-ปวส.</a> <a href="#university" class="block text-slate-400 hover:text-white text-sm">เทียบโอนปริญญาตรี</a> <a href="#career" class="block text-slate-400 hover:text-white text-sm">แนวทางอาชีพ</a>
+       </div>
+      </div>
+      <div>
+       <h4 class="font-semibold mb-4">เวลาทำการ</h4>
+       <div class="text-slate-400 text-sm space-y-1">
+        <p>จันทร์ - ศุกร์: 08:00 - 17:00 น.</p>
+        <p>เสาร์: 09:00 - 15:00 น.</p>
+        <p>อาทิตย์: ปิดทำการ</p>
+       </div>
+      </div>
+     </div>
+     <div class="border-t border-slate-800 pt-8 text-center">
+      <p class="text-slate-500 text-sm">© 2026 สาขาเทคโนโลยีธุรกิจดิจิทัล - Digital Business Technology Department</p>
+      <p class="text-slate-600 text-xs mt-2">โครงงานนักศึกษา | Student Project</p>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    // Default configuration
+    const defaultConfig = {
+      site_title: 'สาขาเทคโนโลยีธุรกิจดิจิทัล',
+      contact_email: 'dbt.info@college.ac.th',
+      contact_phone: '02-XXX-XXXX ต่อ 1234',
+      background_color: '#0a1628',
+      primary_color: '#3b82f6',
+      text_color: '#1e293b',
+      accent_color: '#06b6d4',
+      surface_color: '#ffffff'
+    };
+
+    let config = { ...defaultConfig };
+
+    // Chat responses
+    const chatResponses = {
+      'สมัครเรียนอย่างไร?': 'การสมัครเรียนสามารถทำได้ 2 วิธีค่ะ:\n\n1. สมัครออนไลน์ผ่านเว็บไซต์วิทยาลัย\n2. สมัครด้วยตนเองที่ห้องทะเบียน\n\nเอกสารที่ต้องใช้:\n- สำเนาบัตรประชาชน\n- สำเนาทะเบียนบ้าน\n- รูปถ่าย 1 นิ้ว 3 รูป\n- วุฒิการศึกษาเดิม',
+      'เทียบโอนได้ไหม?': 'ได้ค่ะ! ผู้ที่จบ ปวส. สาขาเทคโนโลยีธุรกิจดิจิทัล สามารถเทียบโอนเข้าศึกษาต่อระดับปริญญาตรี (หลักสูตรต่อเนื่อง 2 ปี) ในคณะบริหารธุรกิจ หรือคณะเทคโนโลยีสารสนเทศได้เลยค่ะ 🎓',
+      'สามารถเรียนที่วิทยาลัยหลักสูตรต่อเนื่องจาก ปวส.ได้ไหม?': 'ได้ค่ะ! ผู้ที่จบ ปวส. สาขาเทคโนโลยีธุรกิจดิจิทัล สามารถเข้าศึกษาหลักสูตรต่อเนื่อง ในระดับปริญญาตรี (หลักสูตรต่อเนื่อง 2 ปี) ในวิทยาลัยได้ค่ะ 🎓',
+      'default': 'ขอบคุณสำหรับข้อความค่ะ 😊 แอดมินจะติดต่อกลับโดยเร็วที่สุดนะคะ หรือสามารถโทรสอบถามได้ที่ 02-XXX-XXXX ค่ะ'
+    };
+
+    // Send quick reply
+    function sendQuickReply(message) {
+      addUserMessage(message);
+      setTimeout(() => {
+        const response = chatResponses[message] || chatResponses['default'];
+        addAdminMessage(response);
+      }, 1000);
+    }
+
+    // Send custom message
+    function sendMessage() {
+      const input = document.getElementById('chat-input');
+      const message = input.value.trim();
+      if (message) {
+        addUserMessage(message);
+        input.value = '';
+        setTimeout(() => {
+          addAdminMessage(chatResponses['default']);
+        }, 1000);
+      }
+    }
+
+    // Add user message to chat
+    function addUserMessage(message) {
+      const container = document.getElementById('chat-messages');
+      const div = document.createElement('div');
+      div.className = 'chat-bubble flex justify-end';
+      div.innerHTML = `
+        <div class="bg-blue-600 text-white rounded-2xl rounded-tr-none p-4 shadow-sm max-w-xs">
+          <p>${message}</p>
+        </div>
+      `;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    // Add admin message to chat
+    function addAdminMessage(message) {
+      const container = document.getElementById('chat-messages');
+      const div = document.createElement('div');
+      div.className = 'chat-bubble flex gap-3';
+      div.innerHTML = `
+        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+          <span class="text-sm">👩‍💼</span>
+        </div>
+        <div class="bg-white rounded-2xl rounded-tl-none p-4 shadow-sm max-w-xs">
+          <p class="text-slate-700 whitespace-pre-line">${message}</p>
+        </div>
+      `;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Close mobile menu if open
+          document.getElementById('mobile-menu').classList.add('hidden');
+        }
+      });
+    });
+
+    // Element SDK integration
+    async function onConfigChange(newConfig) {
+      config = { ...defaultConfig, ...newConfig };
+      
+      // Update site title
+      const navTitle = document.getElementById('nav-title');
+      const footerTitle = document.getElementById('footer-title');
+      if (navTitle) navTitle.textContent = 'DBT ' + (config.site_title || defaultConfig.site_title);
+      if (footerTitle) footerTitle.textContent = config.site_title || defaultConfig.site_title;
+
+      // Update contact info
+      const emailEl = document.getElementById('contact-email');
+      const phoneEl = document.getElementById('contact-phone');
+      if (emailEl) emailEl.textContent = config.contact_email || defaultConfig.contact_email;
+      if (phoneEl) phoneEl.textContent = config.contact_phone || defaultConfig.contact_phone;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.primary_color || defaultConfig.primary_color,
+            set: (value) => {
+              config.primary_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ primary_color: value });
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.accent_color || defaultConfig.accent_color,
+            set: (value) => {
+              config.accent_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ accent_color: value });
+            }
+          },
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ background_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['site_title', config.site_title || defaultConfig.site_title],
+        ['contact_email', config.contact_email || defaultConfig.contact_email],
+        ['contact_phone', config.contact_phone || defaultConfig.contact_phone]
+      ]);
+    }
+
+    // Initialize Element SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c7a480a53e0feae',t:'MTc3MDA0MTUyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
